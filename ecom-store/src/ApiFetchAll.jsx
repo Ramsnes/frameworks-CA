@@ -1,6 +1,14 @@
+// ApiFetchAll.jsx
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import IsLoading from "./IsLoading";
 import IsError from "./IsError";
+// Card imports
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -23,6 +31,7 @@ function FetchAll() {
         console.log(json);
 
         // Change state to incl data
+        // .data because API docs starts with data.[rest of arrays]
         setProducts(json.data);
 
         //Clear loading
@@ -45,14 +54,31 @@ function FetchAll() {
 
   return (
     <div>
-      {products.map((product) => {
-        return (
-          <div key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-          </div>
-        );
-      })}
+      {products.map((product) => (
+        <Card key={product.id} sx={{ maxWidth: 345, marginBottom: 2 }}>
+          <CardActionArea>
+            <Link
+              to={`./Product/${product.id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <CardMedia
+                sx={{ height: 140 }}
+                image={product.image.url}
+                title={product.image.alt || product.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {product.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {/* {product.description} */}
+                  {/* Rating: {product.rating} */}
+                </Typography>
+              </CardContent>
+            </Link>
+          </CardActionArea>
+        </Card>
+      ))}
     </div>
   );
 }

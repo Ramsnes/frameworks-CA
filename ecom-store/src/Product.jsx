@@ -1,14 +1,9 @@
 // Product.jsx
-
 import React from "react";
-import { useParams } from "react-router-dom";
+import FetchSingle from "./ApiFetchSingle";
 
 function Product() {
-  let params = useParams();
-  // Log id of product
-  console.log(params);
-
-  return <div>Individual product page: {params.id}</div>;
+  return <FetchSingle />;
 }
 
 export default Product;

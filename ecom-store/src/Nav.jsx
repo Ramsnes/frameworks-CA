@@ -1,4 +1,5 @@
 // Nav.jsx
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Nav() {
@@ -9,10 +10,10 @@ function Nav() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/cart">Cart page</Link>
+          <Link to="/cart">Cart</Link>
         </li>
         <li>
-          <Link to="/contact">Contact page</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
