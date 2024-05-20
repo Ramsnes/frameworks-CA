@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import loading and error
+import IsLoading from "./IsLoading";
+import IsError from "./IsError";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -55,3 +56,5 @@ function FetchAll() {
     </div>
   );
 }
+
+export default FetchAll;

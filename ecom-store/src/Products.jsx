@@ -1,8 +1,9 @@
 // Products.jsx
 import React from "react";
+import FetchAll from "./ApiFetchAll";
 
 function Products() {
-  return <div>Produkter her</div>;
+  return <FetchAll />;
 }
 
 export default Products;
