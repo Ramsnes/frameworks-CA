@@ -9,16 +9,10 @@ function Nav() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Individual product page</Link>
+          <Link to="/cart">Cart page</Link>
         </li>
         <li>
-          <Link to="/">Cart page</Link>
-        </li>
-        <li>
-          <Link to="/">Checkout success page</Link>
-        </li>
-        <li>
-          <Link to="/">Contact page</Link>
+          <Link to="/contact">Contact page</Link>
         </li>
       </ul>
     </nav>
