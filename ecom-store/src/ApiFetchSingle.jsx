@@ -6,7 +6,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
 function FetchSingle() {
@@ -59,10 +58,11 @@ function FetchSingle() {
         <Typography gutterBottom variant="h5" component="div">
           {data.title}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
-          {data.description}
+        <Typography variant="body1">{data.description}</Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+          Price: {data.discountedPrice}
         </Typography>
-        <Typography variant="h6" component="div" sx={{ mt: 2 }}>
+        <Typography variant="h6" component="div" sx={{ mt: 7 }}>
           Recent reviews:
         </Typography>
 

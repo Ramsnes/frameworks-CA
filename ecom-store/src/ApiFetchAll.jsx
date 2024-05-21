@@ -71,6 +71,7 @@ function FetchAll() {
                   {product.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
+                  Price: {product.discountedPrice}
                   {/* {product.description} */}
                   {/* Rating: {product.rating} */}
                 </Typography>
