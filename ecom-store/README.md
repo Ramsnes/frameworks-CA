@@ -1,3 +1,7 @@
+# Frameworks, library or other components used
+
+**Material UI** [Material.com](https://mui.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
