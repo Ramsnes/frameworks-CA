@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import DiscountLogic from "./DiscountLogic";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
@@ -59,9 +60,17 @@ function FetchSingle() {
           {data.title}
         </Typography>
         <Typography variant="body1">{data.description}</Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+        {/* <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
           Price: {data.discountedPrice}
-        </Typography>
+        </Typography> */}
+
+        {/* Discounted price and price  */}
+        {data.discountedPrice && (
+          <DiscountLogic
+            price={data.price}
+            discountedPrice={data.discountedPrice}
+          />
+        )}
         <Typography variant="h6" component="div" sx={{ mt: 7 }}>
           Recent reviews:
         </Typography>
