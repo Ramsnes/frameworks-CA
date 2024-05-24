@@ -9,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -54,32 +55,51 @@ function FetchAll() {
 
   return (
     <div>
-      {products.map((product) => (
-        <Card key={product.id} sx={{ maxWidth: 345, marginBottom: 2 }}>
-          <CardActionArea>
-            <Link
-              to={`./Product/${product.id}`}
-              style={{ textDecoration: "none" }}
+      <Grid container spacing={2} justifyContent="center">
+        {products.map((product) => (
+          <Grid
+            key={product.id}
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Card
+              key={product.id}
+              sx={{
+                maxWidth: 345,
+                minWidth: 245,
+                marginBottom: 2,
+              }}
             >
-              <CardMedia
-                sx={{ height: 140 }}
-                image={product.image.url}
-                title={product.image.alt || product.title}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Price: {product.discountedPrice}
-                  {/* {product.description} */}
-                  {/* Rating: {product.rating} */}
-                </Typography>
-              </CardContent>
-            </Link>
-          </CardActionArea>
-        </Card>
-      ))}
+              <CardActionArea>
+                <Link
+                  to={`./Product/${product.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image={product.image.url}
+                    title={product.image.alt || product.title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {product.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Price: {product.discountedPrice}
+                      {/* {product.description} */}
+                      {/* Rating: {product.rating} */}
+                    </Typography>
+                  </CardContent>
+                </Link>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }
