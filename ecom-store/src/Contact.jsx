@@ -12,7 +12,11 @@ import { useForm } from "react-hook-form";
 function ReactHookForm() {
   // handleSubmit receives the form data if validation is succs.
   // register registers input by creating a ref
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   function onSubmit(data) {
     console.log(data);
@@ -25,56 +29,90 @@ function ReactHookForm() {
         <label htmlFor="fullName">Full Name:</label>
         <input
           {...register("fullName", {
-            required: true,
-            minLength: 3,
-            maxLength: 50,
+            validate: {
+              required: (value) => {
+                if (!value) {
+                  return "Full name required";
+                }
+                if (value.length < 3) {
+                  return "Minimum 3 characters required";
+                }
+                return true;
+              },
+            },
           })}
           id="fullName"
-          placeholder="Minimum 3 characters"
+          placeholder="Minimum 3 characters required"
         />
+        {errors.fullName && <p role="alert">{errors.fullName.message}</p>}
 
         {/* Subject  */}
         <label htmlFor="subject">Subject:</label>
-        <select
+        <input
           {...register("subject", {
-            required: true,
-            minLength: 3,
-            maxLength: 100,
+            validate: {
+              required: (value) => {
+                if (!value) {
+                  return "Subject text required";
+                }
+                if (value.length < 3) {
+                  return "Minimum 3 characters";
+                }
+                return true;
+              },
+            },
           })}
           id="subject"
-        >
-          <option value={"complaint"}>Complaint</option>
-          <option value={"other"}>Other</option>
-        </select>
+          placeholder="Minimum 3 characters required"
+        />
+        {errors.subject && <p role="alert">{errors.subject.message}</p>}
 
         {/* Email  */}
         <label htmlFor="email">Email:</label>
         <input
           {...register("email", {
-            required: true,
-            pattern: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+            validate: {
+              required: (value) => {
+                if (!value) {
+                  return "Email address required";
+                }
+
+                // Pattern
+                const emailPattern =
+                  /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                if (!emailPattern.test(value)) {
+                  return "Invalid email format";
+                }
+                return true;
+              },
+            },
           })}
           id="email"
-          placeholder="E.g name@domain.com"
+          placeholder="name@domain.com"
         />
-        {/* regex check: 
-Starting with one or more letters, numbers, periods, underscores, plus signs, or hyphens ([A-Za-z0-9._%+-]+)
-Followed by "@" symbol (@)
-Then one or more letters, numbers, periods, or hyphens in the domain name ([A-Za-z0-9.-]+)
-Ending with a top-level domain (TLD) with at least two characters ([A-Za-z]{2,})
- */}
+        {errors.email && <p role="alert">{errors.email.message}</p>}
 
         {/* Body  */}
         <label htmlFor="body">Body:</label>
         <input
           {...register("body", {
-            required: true,
-            minLength: 3,
-            maxLength: 100,
+            validate: {
+              required: (value) => {
+                if (!value) {
+                  return "Body text required";
+                }
+                if (value.length < 3) {
+                  return "Minimum 3 characters required";
+                }
+                return true;
+              },
+            },
           })}
           id="body"
           placeholder="Minimum 3 characters"
         />
+        {errors.body && <p role="alert">{errors.body.message}</p>}
+
         <input type="submit" />
       </form>
     </div>
