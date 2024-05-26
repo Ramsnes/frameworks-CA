@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import DiscountLogic from "./DiscountLogic";
+import { Grid } from "@mui/material";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
@@ -48,70 +49,74 @@ function FetchSingle() {
   console.log(data);
 
   return (
-    <Card sx={{ maxWidth: 600, margin: "auto", mt: 4 }}>
-      <CardMedia
-        component="img"
-        sx={{ height: 300 }}
-        image={data.image.url}
-        title={data.image.alt || data.title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {data.title}
-        </Typography>
-        <Typography variant="body1">{data.description}</Typography>
-        {/* <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+    <Grid container justifyContent="center">
+      <Grid item xs={12} sm={8} md={6} lg={4}>
+        <Card sx={{ maxWidth: 600, margin: "auto", mt: 4 }}>
+          <CardMedia
+            component="img"
+            sx={{ height: 300 }}
+            image={data.image.url}
+            title={data.image.alt || data.title}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {data.title}
+            </Typography>
+            <Typography variant="body1">{data.description}</Typography>
+            {/* <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
           Price: {data.discountedPrice}
         </Typography> */}
 
-        {/* Discounted price and price  */}
-        {data.discountedPrice && (
-          <DiscountLogic
-            price={data.price}
-            discountedPrice={data.discountedPrice}
-          />
-        )}
-        <Typography variant="h6" component="div" sx={{ mt: 7 }}>
-          Recent reviews:
-        </Typography>
+            {/* Discounted price and price  */}
+            {data.discountedPrice && (
+              <DiscountLogic
+                price={data.price}
+                discountedPrice={data.discountedPrice}
+              />
+            )}
+            <Typography variant="h6" component="div" sx={{ mt: 7 }}>
+              Recent reviews:
+            </Typography>
 
-        {/* conditional reviews */}
-        {data.reviews && data.reviews.length > 0 ? (
-          data.reviews.map((review, index) => (
-            <Card key={index} sx={{ mb: 2 }}>
-              <CardContent>
-                <Typography variant="subtitle1">
-                  Username: {review.username}
-                </Typography>
-                <Typography variant="body2" color2 color="text.secondary">
-                  User review: {review.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Users product rating: {review.rating}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))
-        ) : (
-          <Typography variant="body2" color="text.secondary">
-            No reviews available.
-          </Typography>
-        )}
+            {/* conditional reviews */}
+            {data.reviews && data.reviews.length > 0 ? (
+              data.reviews.map((review, index) => (
+                <Card key={index} sx={{ mb: 2 }}>
+                  <CardContent>
+                    <Typography variant="subtitle1">
+                      Username: {review.username}
+                    </Typography>
+                    <Typography variant="body2" color2 color="text.secondary">
+                      User review: {review.description}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Users product rating: {review.rating}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              <Typography variant="body2" color="text.secondary">
+                No reviews available.
+              </Typography>
+            )}
 
-        {/* conditional rating */}
-        {data.rating > 0 ? (
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Overall product rating: {data.rating}
-          </Typography>
-        ) : (
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Overall rating unavailable
-          </Typography>
-        )}
+            {/* conditional rating */}
+            {data.rating > 0 ? (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Overall product rating: {data.rating}
+              </Typography>
+            ) : (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Overall rating unavailable
+              </Typography>
+            )}
 
-        <Button variant="contained">Add to cart</Button>
-      </CardContent>
-    </Card>
+            <Button variant="contained">Add to cart</Button>
+          </CardContent>
+        </Card>
+      </Grid>
+    </Grid>
   );
 }
 

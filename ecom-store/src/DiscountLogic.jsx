@@ -12,7 +12,7 @@ const DiscountLogic = ({ price, discountedPrice }) => {
         Price: {discountedPrice}
       </Typography>
 
-      {discountPercentage && (
+      {discountPercentage > 0 && (
         <Typography variant="body2" color="secondary">
           Discount: {discountPercentage.toFixed(1)}%
         </Typography>

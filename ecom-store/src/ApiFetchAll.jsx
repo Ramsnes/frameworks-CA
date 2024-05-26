@@ -1,19 +1,19 @@
-// ApiFetchAll.jsx
+// ApiProducts.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IsLoading from "./IsLoading";
 import IsError from "./IsError";
-// Card imports
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
-function FetchAll() {
+function Products() {
   const [products, setProducts] = useState([]);
 
   // State for holding loading/error state
@@ -74,28 +74,28 @@ function FetchAll() {
                 marginBottom: 2,
               }}
             >
-              <CardActionArea>
-                <Link
-                  to={`./Product/${product.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image={product.image.url}
-                    title={product.image.alt || product.title}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {product.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Price: {product.discountedPrice}
-                      {/* {product.description} */}
-                      {/* Rating: {product.rating} */}
-                    </Typography>
-                  </CardContent>
-                </Link>
-              </CardActionArea>
+              <CardMedia
+                sx={{ height: 240 }}
+                image={product.image.url}
+                title={product.image.alt || product.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {product.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Price: {product.discountedPrice}
+                  {/* {product.description} */}
+                  {/* Rating: {product.rating} */}
+                </Typography>
+              </CardContent>
+
+              <Link
+                to={`./Product/${product.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Button variant="contained">View product</Button>
+              </Link>
             </Card>
           </Grid>
         ))}
@@ -104,4 +104,4 @@ function FetchAll() {
   );
 }
 
-export default FetchAll;
+export default Products;
