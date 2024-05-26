@@ -3,6 +3,7 @@ import { createContext, useState, useContext } from "react";
 
 const CartContext = createContext(null);
 
+// CartProvider has the ability to gather, add, remove products. And where CartProvider is called, those places have those abilities
 export const CartProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
@@ -23,6 +24,7 @@ export const CartProvider = ({ children }) => {
   );
 };
 
+// Custo, hook used in Cart.jsx
 export const useCartContext = () => {
   const context = useContext(CartContext);
 

@@ -66,8 +66,8 @@ function FetchSingle() {
             </Typography>
             <Typography variant="body1">{data.description}</Typography>
             {/* <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
-          Price: {data.discountedPrice}
-        </Typography> */}
+              Price: {data.discountedPrice}
+            </Typography> */}
 
             {/* Discounted price and price  */}
             {data.discountedPrice && (
@@ -114,6 +114,7 @@ function FetchSingle() {
               </Typography>
             )}
 
+            {/* Add product  */}
             <Button onClick={() => addProduct(data)} variant="contained">
               Add to cart
             </Button>
