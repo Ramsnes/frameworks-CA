@@ -9,12 +9,14 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import DiscountLogic from "./DiscountLogic";
 import { Grid } from "@mui/material";
+import { useCartContext } from "./CartContext";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   let { id } = useParams();
+  const { addProduct } = useCartContext();
 
   useEffect(() => {
     async function getData(url) {
@@ -112,7 +114,9 @@ function FetchSingle() {
               </Typography>
             )}
 
-            <Button variant="contained">Add to cart</Button>
+            <Button onClick={() => addProduct(data)} variant="contained">
+              Add to cart
+            </Button>
           </CardContent>
         </Card>
       </Grid>

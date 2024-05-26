@@ -8,7 +8,6 @@
 // React hook form utilised: https://content.noroff.dev/front-end-frameworks/react-hook-form.html
 import React from "react";
 import { useForm } from "react-hook-form";
-import Alert from "@mui/material/Alert";
 
 function ReactHookForm() {
   // handleSubmit receives the form data if validation is succs.
