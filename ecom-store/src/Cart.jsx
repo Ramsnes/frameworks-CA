@@ -4,43 +4,58 @@ import { useCartContext } from "./CartContext";
 import { Card, CardMedia, Grid } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
   const { products, removeProduct } = useCartContext();
 
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} sm={8} md={6} lg={4}>
-        <Card sx={{ maxWidth: 600, margin: "auto", mt: 4 }}>
-          <CardMedia
-            component="img"
-            sx={{ height: 300 }}
-            image={products.image.url}
-            title={products.image.alt || products.title}
-          ></CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {products.title}
-            </Typography>
-            <Typography variant="body1">{products.description}</Typography>
-          </CardContent>
-          <div>
-            <h2>My cart</h2>
-            <p>List of added products:</p>
-            {products.map((item) => (
-              <div>
-                <div key={item.id}>
-                  <ul>
-                    <li>{JSON.stringify(item)}</li>
-                  </ul>
-                </div>
-                <button onClick={() => removeProduct(item.id)}>Remove</button>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </Grid>
+    <Grid container justifyContent="center" spacing={4}>
+      {products.length === 0 ? (
+        <Grid item xs={12}>
+          <Typography variant="h6" component="div">
+            Your cart is empty
+          </Typography>
+        </Grid>
+      ) : (
+        products.map((item) => (
+          <Card
+            key={item.id}
+            sx={{
+              maxWidth: 345,
+              minWidth: 245,
+              marginBottom: 2,
+              margin: "auto",
+              mt: 4,
+            }}
+          >
+            <CardMedia
+              sx={{
+                height: 240,
+              }}
+              image={item.image.url}
+              title={item.image.alt || item.title}
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                {item.discountedPrice}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                {item.title}
+              </Typography>
+            </CardContent>
+            <div style={{ padding: "0 16px 16px" }}>
+              <Button
+                variant="contained"
+                onClick={() => removeProduct(item.id)}
+              >
+                Remove
+              </Button>
+            </div>
+          </Card>
+        ))
+      )}
     </Grid>
   );
 }
