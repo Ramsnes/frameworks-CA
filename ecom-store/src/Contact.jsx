@@ -1,13 +1,15 @@
 /* 
-- Full name (Minimum number of characters is 3, required)
-- Subject (Minimum number of characters is 3, required)
-- Email (Must be a valid email address, required)
-- Body (Minimum number of characters is 3, required)
-- Submit button */
-
-// React hook form utilised: https://content.noroff.dev/front-end-frameworks/react-hook-form.html
+Tools utilized:
+React hook form: https://content.noroff.dev/front-end-frameworks/react-hook-form.html
+Material Textfield: https://mui.com/material-ui/react-text-field/
+Material Grid: https://mui.com/material-ui/react-grid/#row-amp-column-spacing
+*/
 import React from "react";
 import { useForm } from "react-hook-form";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { Grid } from "@mui/material";
 
 function ReactHookForm() {
   // handleSubmit receives the form data if validation is succs.
@@ -23,99 +25,138 @@ function ReactHookForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Full name  */}
-        <label htmlFor="fullName">Full Name:</label>
-        <input
-          {...register("fullName", {
-            validate: {
-              required: (value) => {
-                if (!value) {
-                  return "Full name required";
-                }
-                if (value.length < 3) {
-                  return "Minimum 3 characters required";
-                }
-                return true;
+    <Box
+      component="form"
+      onSubmit={handleSubmit(onSubmit)}
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "25ch" },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid item>
+          <TextField
+            {...register("fullName", {
+              // My jsx validation logic
+              validate: {
+                required: (value) => {
+                  if (!value) {
+                    return "Full name required";
+                  }
+                  if (value.length < 3) {
+                    return "Minimum 3 characters required";
+                  }
+                  return true;
+                },
               },
-            },
-          })}
-          id="fullName"
-          placeholder="Minimum 3 characters required"
-        />
-        {errors.fullName && <p role="alert">{errors.fullName.message}</p>}
+            })}
+            id="fullName"
+            label="Full Name"
+            variant="outlined"
+            placeholder="Minimum 3 characters required"
+            error={!!errors.fullName}
+            helperText={errors.fullName ? errors.fullName.message : ""}
+          />
+        </Grid>
 
         {/* Subject  */}
-        <label htmlFor="subject">Subject:</label>
-        <input
-          {...register("subject", {
-            validate: {
-              required: (value) => {
-                if (!value) {
-                  return "Subject text required";
-                }
-                if (value.length < 3) {
-                  return "Minimum 3 characters";
-                }
-                return true;
+        <Grid item>
+          <TextField
+            {...register("subject", {
+              // My jsx validation logic
+              validate: {
+                required: (value) => {
+                  if (!value) {
+                    return "Subject text required";
+                  }
+                  if (value.length < 3) {
+                    return "Minimum 3 characters";
+                  }
+                  return true;
+                },
               },
-            },
-          })}
-          id="subject"
-          placeholder="Minimum 3 characters required"
-        />
-        {errors.subject && <p role="alert">{errors.subject.message}</p>}
+            })}
+            id="subject"
+            label="Subject"
+            variant="outlined"
+            placeholder="Minimum 3 characters required"
+            error={!!errors.subject}
+            helperText={errors.subject ? errors.subject.message : ""}
+          />
+        </Grid>
 
         {/* Email  */}
-        <label htmlFor="email">Email:</label>
-        <input
-          {...register("email", {
-            validate: {
-              required: (value) => {
-                if (!value) {
-                  return "Email address required";
-                }
-
-                // Pattern
-                const emailPattern =
-                  /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-                if (!emailPattern.test(value)) {
-                  return "Invalid email format";
-                }
-                return true;
+        <Grid item>
+          <TextField
+            {...register("email", {
+              // My jsx validation logic
+              validate: {
+                required: (value) => {
+                  if (!value) {
+                    return "Email address required";
+                  }
+                  const emailPattern =
+                    /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                  if (!emailPattern.test(value)) {
+                    return "Invalid email format";
+                  }
+                  return true;
+                },
               },
-            },
-          })}
-          id="email"
-          placeholder="name@domain.com"
-        />
-        {errors.email && <p role="alert">{errors.email.message}</p>}
+            })}
+            id="email"
+            label="Email"
+            variant="outlined"
+            placeholder="name@domain.com"
+            error={!!errors.email}
+            helperText={errors.email ? errors.email.message : ""}
+          />
+        </Grid>
 
         {/* Body  */}
-        <label htmlFor="body">Body:</label>
-        <input
-          {...register("body", {
-            validate: {
-              required: (value) => {
-                if (!value) {
-                  return "Body text required";
-                }
-                if (value.length < 3) {
-                  return "Minimum 3 characters required";
-                }
-                return true;
+        <Grid item>
+          <TextField
+            {...register("body", {
+              // My jsx validation logic
+              validate: {
+                required: (value) => {
+                  if (!value) {
+                    return "Body text required";
+                  }
+                  if (value.length < 3) {
+                    return "Minimum 3 characters required";
+                  }
+                  return true;
+                },
               },
-            },
-          })}
-          id="body"
-          placeholder="Minimum 3 characters"
-        />
-        {errors.body && <p role="alert">{errors.body.message}</p>}
+            })}
+            // Material UI comps
+            id="body"
+            label="Body"
+            variant="outlined"
+            placeholder="Minimum 3 characters"
+            multiline // Multiple lines for text
+            rows={4} // Row numbers for textarea
+            error={!!errors.body} // if validation fails, display error
+            helperText={errors.body ? errors.body.message : ""} // Helper text for validation message
+          />
+        </Grid>
 
-        <input type="submit" />
-      </form>
-    </div>
+        {/* Submit button */}
+        <Grid item>
+          <Button type="submit" variant="contained" sx={{ m: 1 }}>
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

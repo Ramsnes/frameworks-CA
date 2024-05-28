@@ -18,7 +18,7 @@ function Header() {
           component="div"
           sx={{ flexGrow: 1, color: "white" }}
         >
-          eCom store
+          Ramsnes' eCom store
         </Typography>
       </Box>
       <Nav />
