@@ -50,6 +50,7 @@ function FetchSingle() {
   }
 
   console.log(data);
+  const { products } = useCartContext();
 
   return (
     <Grid container justifyContent="center">
@@ -72,10 +73,19 @@ function FetchSingle() {
                 discountedPrice={data.discountedPrice}
               />
             )}
-            <Typography variant="h6" component="div" sx={{ mt: 7 }}>
+
+            {/* Add product brn */}
+            <Button
+              onClick={() => addProduct(data)}
+              variant="contained"
+              style={{ marginRight: 10, marginTop: 20 }}
+            >
+              Add to cart
+            </Button>
+
+            <Typography variant="h6" component="div" sx={{ mt: 3 }}>
               Recent reviews:
             </Typography>
-
             {/* conditional reviews */}
             {data.reviews && data.reviews.length > 0 ? (
               data.reviews.map((review, index) => (
@@ -109,23 +119,6 @@ function FetchSingle() {
                 Overall rating unavailable
               </Typography>
             )}
-
-            {/* Add product  */}
-            <Button
-              onClick={() => addProduct(data)}
-              variant="contained"
-              sx={{ mr: 2 }}
-            >
-              Add to cart
-            </Button>
-            <Link to={`/`} style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                style={{ marginBottom: 10, marginTop: 10 }}
-              >
-                Productlist
-              </Button>
-            </Link>
           </CardContent>
         </Card>
       </Grid>
@@ -134,43 +127,3 @@ function FetchSingle() {
 }
 
 export default FetchSingle;
-
-/* 
-
-OG return without Material UI:
-return (
-    <div>
-      <h2>Title: {data.title}</h2>
-      <img src={data.image.url} alt={data.image.alt} />
-      <p>{data.description}</p>
-      <div>
-        <h4>Recent review:</h4>
-"Iterate .reviews for access of reviews[arrays] "
-        {data.reviews && data.reviews.length > 0 ? (
-          data.reviews.map((review, index) => (
-            <div key={index}>
-              <p>Username: {review.username}</p>
-              <p>Users review: {review.description}</p>
-              <p>Users product rating: {review.rating}</p>
-            </div>
-          ))
-        ) : (
-          <p>No reviews available.</p>
-        )}
-      </div>
-      <p>Rating overall: {data.rating}</p>
-    </div>
-  );
-}
-
-OG return explanation:
-- data.title- image- description- rating are all properies fetched from the 'data object'.
-- data.reviews.username doesnt work because username is nested within an array inside data.reviews.
-data.reviews[username] indicates it needs to be iteraten over for access
-
-Iteration explanation:
-- if reviews and length are more than 0, render: 'data.reviews.map((review, index) =>'
-- if not, render: '<p>No reviews available.</p>'
-
-- index parameter (Optional): The index of the current element being processed in the array.
-*/

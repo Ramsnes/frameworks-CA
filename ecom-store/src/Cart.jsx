@@ -10,6 +10,11 @@ import { Link } from "react-router-dom";
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
   const { products, removeProduct } = useCartContext();
+  // Calculate total sum
+  const totalSum = products.reduce(
+    (acc, item) => acc + item.discountedPrice,
+    0
+  );
 
   return (
     <Grid container justifyContent="center" spacing={4}>
@@ -65,6 +70,12 @@ function Cart() {
           </Card>
         ))
       )}
+      <Grid item justifyContent="center" xs={12}>
+        <Typography variant="h6" component="div">
+          {/* formats to digits after decimal point */}
+          Total: ${totalSum.toFixed(2)}
+        </Typography>
+      </Grid>
     </Grid>
   );
 }

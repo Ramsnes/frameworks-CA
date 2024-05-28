@@ -51,7 +51,7 @@ function ReactHookForm() {
                     return "Full name required";
                   }
                   if (value.length < 3) {
-                    return "Minimum 3 characters required";
+                    return "Minimum 3 characters";
                   }
                   return true;
                 },
@@ -60,7 +60,7 @@ function ReactHookForm() {
             id="fullName"
             label="Full Name"
             variant="outlined"
-            placeholder="Minimum 3 characters required"
+            placeholder="Minimum 3 characters"
             error={!!errors.fullName}
             helperText={errors.fullName ? errors.fullName.message : ""}
           />
@@ -86,7 +86,7 @@ function ReactHookForm() {
             id="subject"
             label="Subject"
             variant="outlined"
-            placeholder="Minimum 3 characters required"
+            placeholder="Minimum 3 characters"
             error={!!errors.subject}
             helperText={errors.subject ? errors.subject.message : ""}
           />
@@ -131,7 +131,7 @@ function ReactHookForm() {
                     return "Body text required";
                   }
                   if (value.length < 3) {
-                    return "Minimum 3 characters required";
+                    return "Minimum 3 characters";
                   }
                   return true;
                 },
