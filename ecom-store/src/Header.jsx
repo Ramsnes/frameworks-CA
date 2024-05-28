@@ -1,9 +1,26 @@
+import React from "react";
 import Nav from "./Nav";
+import { Box, Typography } from "@mui/material";
 
 function Header() {
   return (
     <header>
-      <h2>Header with logo and nav</h2>
+      <Box
+        sx={{
+          flexGrow: 1,
+          p: 2,
+          textAlign: "center",
+          backgroundColor: "primary.main",
+        }}
+      >
+        <Typography
+          variant="h4"
+          component="div"
+          sx={{ flexGrow: 1, color: "white" }}
+        >
+          eCom store
+        </Typography>
+      </Box>
       <Nav />
     </header>
   );

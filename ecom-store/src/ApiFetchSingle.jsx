@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import DiscountLogic from "./DiscountLogic";
 import { Grid } from "@mui/material";
 import { useCartContext } from "./CartContext";
+import { Link } from "react-router-dom";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
@@ -65,11 +66,6 @@ function FetchSingle() {
               {data.title}
             </Typography>
             <Typography variant="body1">{data.description}</Typography>
-            {/* <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
-              Price: {data.discountedPrice}
-            </Typography> */}
-
-            {/* Discounted price and price  */}
             {data.discountedPrice && (
               <DiscountLogic
                 price={data.price}
@@ -115,9 +111,21 @@ function FetchSingle() {
             )}
 
             {/* Add product  */}
-            <Button onClick={() => addProduct(data)} variant="contained">
+            <Button
+              onClick={() => addProduct(data)}
+              variant="contained"
+              sx={{ mr: 2 }}
+            >
               Add to cart
             </Button>
+            <Link to={`/`} style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                style={{ marginBottom: 10, marginTop: 10 }}
+              >
+                Productlist
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </Grid>

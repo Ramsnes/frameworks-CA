@@ -5,6 +5,7 @@ import { Card, CardMedia, Grid } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
@@ -17,6 +18,14 @@ function Cart() {
           <Typography variant="h6" component="div">
             Your cart is empty
           </Typography>
+          <Link to={`/`} style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              style={{ marginBottom: 10, marginTop: 10 }}
+            >
+              Productlist
+            </Button>
+          </Link>
         </Grid>
       ) : (
         products.map((item) => (
