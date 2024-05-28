@@ -75,7 +75,7 @@ function Products() {
                   key={product.id}
                   sx={{
                     maxWidth: 345,
-                    minWidth: 325,
+                    minWidth: 290,
                     marginBottom: 2,
                   }}
                 >
