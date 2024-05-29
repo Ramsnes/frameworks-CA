@@ -5,7 +5,7 @@ import { Card, CardMedia, Grid } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
@@ -15,6 +15,10 @@ function Cart() {
     (acc, item) => acc + item.discountedPrice,
     0
   );
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate("/checkout-complete");
+  };
 
   return (
     <Grid container justifyContent="center" spacing={4}>
@@ -66,10 +70,15 @@ function Cart() {
                 {item.title}
               </Typography>
             </CardContent>
-            <div style={{ padding: "0 16px 16px" }}>
+            <div
+              style={{
+                padding: "0 16px 16px",
+              }}
+            >
               <Button
                 variant="contained"
                 onClick={() => removeProduct(item.id)}
+                style={{ marginBottom: 10 }}
               >
                 Remove
               </Button>
@@ -91,11 +100,6 @@ function Cart() {
             {/* formats to digits after decimal point */}
             Total: ${totalSum.toFixed(2)}
           </Typography>
-          <Link to={`/checkout-complete`} style={{ textDecoration: "none" }}>
-            <Button variant="contained" sx={{ mt: 2, width: "auto" }}>
-              Checkout
-            </Button>
-          </Link>
         </div>{" "}
       </Grid>
     </Grid>
@@ -103,3 +107,15 @@ function Cart() {
 }
 
 export default Cart;
+
+{
+  /* <div>
+  <Button
+    variant="contained"
+    sx={{ mt: 2, width: "auto" }}
+    onClick={handleCheckout}
+  >
+    Checkout
+  </Button>
+</div>; */
+}
