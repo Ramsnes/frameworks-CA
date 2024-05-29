@@ -8,12 +8,12 @@ function Footer() {
       component="footer"
       sx={{
         p: 2,
-        backgroundColor: "primary.main",
+        backgroundColor: "#764242",
         color: "white",
         textAlign: "center",
       }}
     >
-      <Typography variant="body1">eCom store @Copyright</Typography>
+      <Typography variant="body1">© 2024 eCom store</Typography>
     </Box>
   );
 }

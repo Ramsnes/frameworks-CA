@@ -7,11 +7,13 @@ import { Container, CssBaseline } from "@mui/material";
 
 function Layout() {
   return (
-    <div>
+    // minHeight 100vh takes up the whole page, flex 1 fills the entire flex(page)
+    <div
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+    >
       <CssBaseline />
-
       <Header />
-      <Container component="main" sx={{ mt: 8, mb: 2 }}>
+      <Container component="main" sx={{ mt: 8, mb: 2, flex: 1 }}>
         <Outlet />
       </Container>
       <Footer />

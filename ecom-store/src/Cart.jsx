@@ -20,17 +20,24 @@ function Cart() {
     <Grid container justifyContent="center" spacing={4}>
       {products.length === 0 ? (
         <Grid item xs={12}>
-          <Typography variant="h6" component="div">
-            Your cart is empty
-          </Typography>
-          <Link to={`/`} style={{ textDecoration: "none" }}>
-            <Button
-              variant="contained"
-              style={{ marginBottom: 10, marginTop: 10 }}
+          <div
+            style={{
+              marginTop: "10vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="div"
+              style={{ marginBottom: 20 }}
             >
-              Productlist
-            </Button>
-          </Link>
+              Your cart is empty
+            </Typography>
+            <Link to={`/`}>Back to list of products</Link>
+          </div>
         </Grid>
       ) : (
         products.map((item) => (
@@ -71,10 +78,23 @@ function Cart() {
         ))
       )}
       <Grid item justifyContent="center" xs={12}>
-        <Typography variant="h6" component="div">
-          {/* formats to digits after decimal point */}
-          Total: ${totalSum.toFixed(2)}
-        </Typography>
+        <div
+          style={{
+            padding: "0 16px 16px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h6" component="div">
+            {/* formats to digits after decimal point */}
+            Total: ${totalSum.toFixed(2)}
+          </Typography>
+          <Button variant="contained" sx={{ mt: 2, width: "auto" }}>
+            Checkout
+          </Button>
+        </div>{" "}
       </Grid>
     </Grid>
   );

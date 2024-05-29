@@ -10,7 +10,7 @@ function Header() {
           flexGrow: 1,
           p: 2,
           textAlign: "center",
-          backgroundColor: "primary.main",
+          backgroundColor: "#764242",
         }}
       >
         <Typography
@@ -18,7 +18,7 @@ function Header() {
           component="div"
           sx={{ flexGrow: 1, color: "white" }}
         >
-          Ramsnes' eCom store
+          eCom store
         </Typography>
       </Box>
       <Nav />

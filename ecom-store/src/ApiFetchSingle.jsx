@@ -10,7 +10,6 @@ import Button from "@mui/material/Button";
 import DiscountLogic from "./DiscountLogic";
 import { Grid } from "@mui/material";
 import { useCartContext } from "./CartContext";
-import { Link } from "react-router-dom";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
@@ -50,7 +49,7 @@ function FetchSingle() {
   }
 
   console.log(data);
-  const { products } = useCartContext();
+  // const { products} = useCartContext();
 
   return (
     <Grid container justifyContent="center">
