@@ -91,9 +91,11 @@ function Cart() {
             {/* formats to digits after decimal point */}
             Total: ${totalSum.toFixed(2)}
           </Typography>
-          <Button variant="contained" sx={{ mt: 2, width: "auto" }}>
-            Checkout
-          </Button>
+          <Link to={`/checkout-complete`} style={{ textDecoration: "none" }}>
+            <Button variant="contained" sx={{ mt: 2, width: "auto" }}>
+              Checkout
+            </Button>
+          </Link>
         </div>{" "}
       </Grid>
     </Grid>
