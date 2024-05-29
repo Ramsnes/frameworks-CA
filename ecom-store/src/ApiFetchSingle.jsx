@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import DiscountLogic from "./DiscountLogic";
 import { Grid } from "@mui/material";
 import { useCartContext } from "./CartContext";
+import { Rating } from "@mui/material";
 
 function FetchSingle() {
   const [data, setData] = useState(null);
@@ -91,14 +92,20 @@ function FetchSingle() {
                 <Card key={index} sx={{ mb: 2 }}>
                   <CardContent>
                     <Typography variant="subtitle1">
-                      Username: {review.username}
+                      User: {review.username}
                     </Typography>
                     <Typography variant="body2" color2 color="text.secondary">
                       User review: {review.description}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      component="legend"
+                      style={{ marginTop: 5 }}
+                    >
                       Users product rating: {review.rating}
                     </Typography>
+                    <Rating name="read-only" value={review.rating} disabled />
                   </CardContent>
                 </Card>
               ))
@@ -110,12 +117,19 @@ function FetchSingle() {
 
             {/* conditional rating */}
             {data.rating > 0 ? (
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Overall product rating: {data.rating}
-              </Typography>
+              <div>
+                <Typography
+                  style={{ display: "flex", flexDirection: "column" }}
+                  variant="body2"
+                  sx={{ mb: 2 }}
+                >
+                  Overall product rating: {data.rating}
+                  <Rating name="read-only" value={data.rating} disabled />
+                </Typography>
+              </div>
             ) : (
               <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                Overall rating unavailable
+                No rating given
               </Typography>
             )}
           </CardContent>

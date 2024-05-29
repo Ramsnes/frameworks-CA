@@ -7,9 +7,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Box, CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
+import { Rating } from "@mui/material";
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -90,9 +90,27 @@ function Products() {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Price: {product.discountedPrice}
-                      {/* {product.description} */}
-                      {/* Rating: {product.rating} */}
                     </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      {/* <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        component="legend"
+                      >
+                        Rating:
+                      </Typography> */}
+                      <Rating
+                        name="read-only"
+                        value={product.rating}
+                        disabled
+                        style={{ marginTop: 5 }}
+                      />
+                    </div>
                   </CardContent>
                   {/* <Button variant="contained">View product</Button> */}
                 </Card>
