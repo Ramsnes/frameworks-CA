@@ -22,6 +22,7 @@ function Cart() {
 
   return (
     <Grid container justifyContent="center" spacing={4}>
+      {/* If the cart is empty:  */}
       {products.length === 0 ? (
         <Grid item xs={12}>
           <div
@@ -44,6 +45,7 @@ function Cart() {
           </div>
         </Grid>
       ) : (
+        // If the cart is NOT empty:
         products.map((item) => (
           <Card
             key={item.id}
@@ -86,36 +88,39 @@ function Cart() {
           </Card>
         ))
       )}
-      <Grid item justifyContent="center" xs={12}>
-        <div
-          style={{
-            padding: "0 16px 16px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h6" component="div">
-            {/* formats to digits after decimal point */}
-            Total: ${totalSum.toFixed(2)}
-          </Typography>
-        </div>{" "}
-      </Grid>
+      {/* Removes checkout and total sum
+      Using Logical AND Operator instead. 
+      Renders block if product > 0. If not, don't render block  */}
+      {products.length > 0 && (
+        <>
+          {/* <> groups the total sum and checkout button logic like a div*/}
+          <Grid item justifyContent="center" xs={12}>
+            <div
+              style={{
+                padding: "0 16px 16px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <Typography variant="h6" component="div">
+                {/* formats to digits after decimal point */}
+                Total: ${totalSum.toFixed(2)}
+              </Typography>
+              <Button
+                variant="contained"
+                sx={{ mt: 2, width: "auto" }}
+                onClick={handleCheckout}
+              >
+                Checkout
+              </Button>
+            </div>
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 }
 
 export default Cart;
-
-{
-  /* <div>
-  <Button
-    variant="contained"
-    sx={{ mt: 2, width: "auto" }}
-    onClick={handleCheckout}
-  >
-    Checkout
-  </Button>
-</div>; */
-}

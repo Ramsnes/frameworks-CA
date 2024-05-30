@@ -74,7 +74,7 @@ function FetchSingle() {
               />
             )}
 
-            {/* Add product brn */}
+            {/* Add product btn */}
             <Button
               onClick={() => addProduct(data)}
               variant="contained"
