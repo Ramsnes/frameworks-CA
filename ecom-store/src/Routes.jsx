@@ -5,8 +5,8 @@ import RouteNotFound from "./RouteNotFount";
 import CartPage from "./Cart";
 import ContactPage from "./Contact";
 import Layout from "./Layout";
-import Products from "./Products";
-import Product from "./Product";
+import { Products } from "./Products";
+import { Product } from "./Product";
 import { CartProvider } from "./CartContext";
 import CheckoutComplete from "./CheckoutComplete";
 
