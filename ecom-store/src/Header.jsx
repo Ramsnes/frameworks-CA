@@ -13,15 +13,23 @@ function Header() {
           backgroundColor: "#000",
         }}
       >
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ flexGrow: 1, color: "white" }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
         >
-          eCom store
-        </Typography>
+          <Nav />
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ flexGrow: 1, color: "white", textAlign: "end" }}
+          >
+            eCom store
+          </Typography>
+        </div>
       </Box>
-      <Nav />
     </header>
   );
 }

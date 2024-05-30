@@ -13,14 +13,25 @@ function Nav() {
     <nav>
       <ul style={{ display: "flex", listStyleType: "none", padding: 0 }}>
         <li style={{ margin: "0 10px" }}>
-          <Link to="/" style={{ textDecoration: "none", padding: "10px 0" }}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              padding: "10px 0",
+              color: "white",
+            }}
+          >
             Home
           </Link>
         </li>
         <li style={{ margin: "0 10px" }}>
           <Link
             to="/contact"
-            style={{ textDecoration: "none", padding: "10px 0" }}
+            style={{
+              textDecoration: "none",
+              padding: "10px 0",
+              color: "white",
+            }}
           >
             Contact
           </Link>
@@ -33,6 +44,7 @@ function Nav() {
               display: "flex",
               textDecoration: "none",
               alignItems: "center",
+              color: "white",
             }}
           >
             <Badge badgeContent={products.length} color="secondary">

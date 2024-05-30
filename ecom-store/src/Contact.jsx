@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 function ReactHookForm() {
   // handleSubmit receives the form data if validation is succs.
@@ -41,6 +41,7 @@ function ReactHookForm() {
         alignItems="center"
         spacing={2}
       >
+        <Typography variant="h5">Contact form</Typography>
         <Grid item>
           <TextField
             {...register("fullName", {
