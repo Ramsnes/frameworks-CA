@@ -10,7 +10,7 @@ function Header() {
           flexGrow: 1,
           p: 2,
           textAlign: "center",
-          backgroundColor: "#764242",
+          backgroundColor: "#000",
         }}
       >
         <Typography

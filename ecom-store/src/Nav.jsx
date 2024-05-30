@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "./CartContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-// Displays number of products in cart
 import { Badge } from "@mui/material";
 
 function Nav() {

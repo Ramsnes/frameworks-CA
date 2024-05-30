@@ -8,7 +8,7 @@ function Footer() {
       component="footer"
       sx={{
         p: 2,
-        backgroundColor: "#764242",
+        backgroundColor: "#000",
         color: "white",
         textAlign: "center",
       }}
