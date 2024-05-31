@@ -18,7 +18,14 @@ export function ProductInfo(props) {
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12} sm={8} md={6} lg={4}>
-        <Card sx={{ maxWidth: 600, margin: "auto", mt: 4 }}>
+        <Card
+          sx={{
+            maxWidth: 600,
+            margin: "auto",
+            mt: 4,
+            border: "2px solid black",
+          }}
+        >
           <CardMedia
             component="img"
             sx={{ height: 300 }}
