@@ -22,6 +22,10 @@ function Cart() {
 
   return (
     <Grid container justifyContent="center" spacing={4}>
+      <Grid item xs={12} style={{ textAlign: "center", marginTop: 20 }}>
+        {" "}
+        <Typography variant="h5">Your cart</Typography>
+      </Grid>
       {/* If the cart is empty:  */}
       {products.length === 0 ? (
         <Grid item xs={12}>

@@ -1,4 +1,4 @@
-// ApiProducts.jsx
+// ProductList.jsx.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
@@ -42,7 +42,7 @@ export function ProductsList(props) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
       <TextField
-        placeholder="Søk her"
+        placeholder="Search product, tag or review description"
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}
       />
@@ -59,19 +59,19 @@ export function ProductsList(props) {
               lg={3}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <CardActionArea>
-                <Link
-                  to={`./Product/${product.id}`}
-                  style={{ textDecoration: "none" }}
+              <Link
+                to={`./Product/${product.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  key={product.id}
+                  sx={{
+                    maxWidth: 345,
+                    minWidth: 290,
+                    marginBottom: 2,
+                  }}
                 >
-                  <Card
-                    key={product.id}
-                    sx={{
-                      maxWidth: 345,
-                      minWidth: 290,
-                      marginBottom: 2,
-                    }}
-                  >
+                  <CardActionArea>
                     <CardMedia
                       sx={{ height: 240 }}
                       image={product.image.url}
@@ -98,9 +98,9 @@ export function ProductsList(props) {
                         />
                       </div>
                     </CardContent>
-                  </Card>
-                </Link>
-              </CardActionArea>
+                  </CardActionArea>
+                </Card>
+              </Link>
             </Grid>
           ))}
       </Grid>
