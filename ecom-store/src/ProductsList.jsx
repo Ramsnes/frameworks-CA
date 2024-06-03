@@ -46,7 +46,7 @@ export function ProductsList(props) {
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}
       />
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={6} justifyContent="center">
         {props.products
           .filter((product) => filterProducts(product, search))
           .map((product) => (

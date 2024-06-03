@@ -22,7 +22,7 @@ function Header() {
         >
           <Nav />
           <Typography
-            variant="h5"
+            variant="h6"
             component="div"
             sx={{ flexGrow: 1, color: "white", textAlign: "end" }}
           >
