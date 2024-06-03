@@ -23,7 +23,7 @@ export function ProductInfo(props) {
             maxWidth: 600,
             margin: "auto",
             mt: 4,
-            border: "2px solid black",
+            border: "1px solid black",
           }}
         >
           <CardMedia
