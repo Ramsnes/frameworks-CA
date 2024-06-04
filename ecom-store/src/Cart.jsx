@@ -8,6 +8,9 @@ import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import DiscountLogic from "./DiscountLogic";
 import { Helmet } from "react-helmet";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import { IconButton } from "@mui/material";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
@@ -92,12 +95,23 @@ function Cart() {
               <div
                 style={{
                   padding: "0 16px 16px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
+                <IconButton aria-label="decrement" style={{ color: "#ff5722" }}>
+                  <RemoveIcon />
+                </IconButton>
+                <Typography variant="body2" color="text.secondary">
+                  Quantity: {item.kvantitet}
+                </Typography>
+                <IconButton aria-label="increment" style={{ color: "#4caf50" }}>
+                  <AddIcon />
+                </IconButton>
                 <Button
                   variant="contained"
                   onClick={() => removeProduct(item.id)}
-                  style={{ marginBottom: 10 }}
                 >
                   Remove
                 </Button>

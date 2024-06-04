@@ -21,7 +21,7 @@ function Nav() {
               color: "white",
             }}
           >
-            Home
+            Products
           </Link>
         </li>
         <li style={{ margin: "0 10px" }}>

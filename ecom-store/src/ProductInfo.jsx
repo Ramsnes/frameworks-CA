@@ -9,6 +9,9 @@ import DiscountLogic from "./DiscountLogic";
 import { Grid } from "@mui/material";
 import { useCartContext } from "./CartContext";
 import { Rating } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import { IconButton } from "@mui/material";
 
 export function ProductInfo(props) {
   const { addProduct } = useCartContext();
@@ -44,14 +47,33 @@ export function ProductInfo(props) {
               />
             )}
 
-            {/* Add product btn */}
-            <Button
-              onClick={() => addProduct(data)}
-              variant="contained"
-              style={{ marginRight: 10, marginTop: 20 }}
+            {/* Add product btns */}
+            <div
+              style={{
+                padding: "0 0px 16px",
+                display: "flex",
+                justifyContent: "start",
+                alignItems: "center",
+                marginTop: 10,
+              }}
             >
-              Add to cart
-            </Button>
+              <Button
+                onClick={() => addProduct(data)}
+                variant="contained"
+                style={{ marginRight: 10 }}
+              >
+                Add to cart
+              </Button>
+              <IconButton aria-label="decrement" style={{ color: "#ff5722" }}>
+                <RemoveIcon />
+              </IconButton>
+              <Typography variant="body2" color="text.secondary">
+                Quantity: {data.kvantitet}
+              </Typography>
+              <IconButton aria-label="increment" style={{ color: "#4caf50" }}>
+                <AddIcon />
+              </IconButton>
+            </div>
 
             <Typography variant="h6" component="div" sx={{ mt: 3 }}>
               Recent reviews:
