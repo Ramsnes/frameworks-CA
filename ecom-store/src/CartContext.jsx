@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Custo, hook used in Cart.jsx
+// Custom, hook used in Cart.jsx
 export const useCartContext = () => {
   const context = useContext(CartContext);
 
