@@ -9,7 +9,7 @@ const DiscountLogic = ({ price, discountedPrice }) => {
   return (
     <div>
       <Typography variant="body1" color="text.secondary">
-        Price: {discountedPrice}
+        Price: ${discountedPrice}
       </Typography>
 
       {discountPercentage > 0 && (

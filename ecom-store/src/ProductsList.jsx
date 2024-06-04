@@ -9,6 +9,7 @@ import { CardActionArea, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Rating } from "@mui/material";
 import DiscountLogic from "./DiscountLogic";
+import { Helmet } from "react-helmet";
 
 function filterProducts(product, search) {
   const query = search.toLowerCase();
@@ -41,73 +42,81 @@ export function ProductsList(props) {
   const [search, setSearch] = useState("");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-      <TextField
-        placeholder="Search product, tag or review description"
-        value={search}
-        onChange={(e) => setSearch(e.currentTarget.value)}
-      />
-      <Grid container spacing={6} justifyContent="center">
-        {props.products
-          .filter((product) => filterProducts(product, search))
-          .map((product) => (
-            <Grid
-              key={product.id}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <Link
-                to={`./Product/${product.id}`}
-                style={{ textDecoration: "none" }}
+    <>
+      <Helmet>
+        <title>
+          {search ? `Search results for "${search}"` : "Product List"}
+        </title>
+      </Helmet>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        <TextField
+          placeholder="Search product, tag or review description"
+          value={search}
+          onChange={(e) => setSearch(e.currentTarget.value)}
+        />
+        <Grid container spacing={6} justifyContent="center">
+          {props.products
+            .filter((product) => filterProducts(product, search))
+            .map((product) => (
+              <Grid
+                key={product.id}
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                style={{ display: "flex", justifyContent: "center" }}
               >
-                <Card
-                  key={product.id}
-                  sx={{
-                    maxWidth: 345,
-                    minWidth: 290,
-                  }}
+                <Link
+                  to={`./Product/${product.id}`}
+                  style={{ textDecoration: "none" }}
                 >
-                  <CardActionArea>
-                    <CardMedia
-                      sx={{ height: 240 }}
-                      image={product.image.url}
-                      title={product.image.alt || product.title}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {product.title}
-                      </Typography>
-
-                      {/* Price and discount percentage  */}
-                      <DiscountLogic
-                        price={product.price}
-                        discountedPrice={product.discountedPrice}
+                  <Card
+                    key={product.id}
+                    sx={{
+                      maxWidth: 345,
+                      minWidth: 290,
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        sx={{ height: 240 }}
+                        image={product.image.url}
+                        title={product.image.alt || product.title}
                       />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {product.title}
+                        </Typography>
 
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Rating
-                          name="read-only"
-                          value={product.rating}
-                          disabled
-                          style={{ marginTop: 5 }}
+                        {/* Price and discount percentage  */}
+                        <DiscountLogic
+                          price={product.price}
+                          discountedPrice={product.discountedPrice}
                         />
-                      </div>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
-            </Grid>
-          ))}
-      </Grid>
-    </div>
+
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Rating
+                            name="read-only"
+                            value={product.rating}
+                            disabled
+                            style={{ marginTop: 5 }}
+                          />
+                        </div>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
+              </Grid>
+            ))}
+        </Grid>
+      </div>
+    </>
   );
 }
