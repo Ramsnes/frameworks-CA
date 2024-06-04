@@ -24,7 +24,11 @@ function Header() {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, color: "white", textAlign: "end" }}
+            sx={{
+              flexGrow: 1,
+              color: "white",
+              textAlign: "end",
+            }}
           >
             eCom store
           </Typography>

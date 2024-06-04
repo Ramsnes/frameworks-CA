@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
+import DiscountLogic from "./DiscountLogic";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
@@ -21,7 +22,13 @@ function Cart() {
   };
 
   return (
-    <Grid container justifyContent="center" spacing={4}>
+    <Grid
+      container
+      justifyContent="center"
+      alignItems="center"
+      spacing={4}
+      style={{ margin: 0, width: "100%" }}
+    >
       <Grid item xs={12} style={{ textAlign: "center", marginTop: 20 }}>
         {" "}
         <Typography variant="h5">Your cart</Typography>
@@ -69,12 +76,13 @@ function Cart() {
               title={item.image.alt || item.title}
             />
             <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {item.discountedPrice}
-              </Typography>
               <Typography gutterBottom variant="h5" component="div">
                 {item.title}
               </Typography>
+              <DiscountLogic
+                price={item.price}
+                discountedPrice={item.discountedPrice}
+              />
             </CardContent>
             <div
               style={{

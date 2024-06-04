@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Rating } from "@mui/material";
+import DiscountLogic from "./DiscountLogic";
 
 function filterProducts(product, search) {
   const query = search.toLowerCase();
@@ -19,12 +20,12 @@ function filterProducts(product, search) {
     return true;
   }
 
-  // Check if the query matches any tag
+  // Checks if the query matches any tag
   if (product.tags.some((tag) => tag.toLowerCase().includes(query))) {
     return true;
   }
 
-  // Check if the query matches any review description
+  // Checks if the query matches any review description
   if (
     product.reviews.some((review) =>
       review.description.toLowerCase().includes(query)
@@ -68,7 +69,6 @@ export function ProductsList(props) {
                   sx={{
                     maxWidth: 345,
                     minWidth: 290,
-                    marginBottom: 2,
                   }}
                 >
                   <CardActionArea>
@@ -81,9 +81,13 @@ export function ProductsList(props) {
                       <Typography gutterBottom variant="h5" component="div">
                         {product.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Price: {product.discountedPrice}
-                      </Typography>
+
+                      {/* Price and discount percentage  */}
+                      <DiscountLogic
+                        price={product.price}
+                        discountedPrice={product.discountedPrice}
+                      />
+
                       <div
                         style={{
                           display: "flex",
