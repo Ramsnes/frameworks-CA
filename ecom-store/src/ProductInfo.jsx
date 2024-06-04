@@ -1,5 +1,5 @@
 // ProductInfo.jsx
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,7 +14,11 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { IconButton } from "@mui/material";
 
 export function ProductInfo(props) {
-  const { addProduct } = useCartContext();
+  const { addProduct, products } = useCartContext();
+  const [quantity, setQuantity] = useState(() => {
+    const product = products.find((p) => p.id === props.product.id);
+    return product ? product.quantity : 1;
+  });
 
   const data = props.product;
 
@@ -58,19 +62,28 @@ export function ProductInfo(props) {
               }}
             >
               <Button
-                onClick={() => addProduct(data)}
+                onClick={() => addProduct({ ...data, quantity })}
                 variant="contained"
                 style={{ marginRight: 10 }}
               >
                 Add to cart
               </Button>
-              <IconButton aria-label="decrement" style={{ color: "#ff5722" }}>
+              <IconButton
+                disabled={quantity === 1}
+                aria-label="decrement"
+                onClick={() => setQuantity((quantity) => --quantity)}
+                style={{ color: quantity === 1 ? "grey" : "#ff5722" }}
+              >
                 <RemoveIcon />
               </IconButton>
               <Typography variant="body2" color="text.secondary">
-                Quantity: {data.kvantitet}
+                Quantity: {quantity}
               </Typography>
-              <IconButton aria-label="increment" style={{ color: "#4caf50" }}>
+              <IconButton
+                aria-label="increment"
+                onClick={() => setQuantity((quantity) => ++quantity)}
+                style={{ color: "#4caf50" }}
+              >
                 <AddIcon />
               </IconButton>
             </div>
@@ -86,7 +99,7 @@ export function ProductInfo(props) {
                     <Typography variant="subtitle1">
                       User: {review.username}
                     </Typography>
-                    <Typography variant="body2" color2 color="text.secondary">
+                    <Typography variant="body2" color="text.secondary">
                       User review: {review.description}
                     </Typography>
                     <Typography
