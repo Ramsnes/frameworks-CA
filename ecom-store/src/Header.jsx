@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 function Header() {
   return (
@@ -21,17 +21,6 @@ function Header() {
           }}
         >
           <Nav />
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              color: "white",
-              textAlign: "end",
-            }}
-          >
-            eCom store
-          </Typography>
         </div>
       </Box>
     </header>
