@@ -14,7 +14,7 @@ function Cart() {
   const { products, removeProduct, resetCart } = useCartContext();
   // Calculate total sum
   const totalSum = products.reduce(
-    (acc, product) => acc + product.discountedPrice,
+    (acc, product) => acc + product.discountedPrice * product.quantity,
     0
   );
   const navigate = useNavigate();

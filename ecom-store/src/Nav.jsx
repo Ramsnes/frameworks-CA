@@ -7,7 +7,11 @@ import { Badge } from "@mui/material";
 
 function Nav() {
   const { products } = useCartContext();
-  console.log(products);
+
+  const totalProducts = products.reduce(
+    (acc, product) => acc + product.quantity,
+    0
+  );
 
   return (
     <nav>
@@ -47,7 +51,7 @@ function Nav() {
               color: "white",
             }}
           >
-            <Badge badgeContent={products.length} color="secondary">
+            <Badge badgeContent={totalProducts} color="secondary">
               <ShoppingCartIcon />
             </Badge>
             <span style={{ marginLeft: "5px" }}>Cart</span>
