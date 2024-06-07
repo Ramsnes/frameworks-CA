@@ -112,7 +112,7 @@ function Cart() {
           ))
         )}
         {/* Removes checkout and total sum
-      Using Logical AND Operator instead. 
+      Using Logical AND Operator. 
       Renders block if product > 0. If not, don't render block  */}
         {products.length > 0 && (
           <>
