@@ -14,6 +14,7 @@ function Layout() {
       <CssBaseline />
       <Header />
       <Container component="main" sx={{ mt: 8, mb: 2, flex: 1 }}>
+        {/* Outlet = represents all children in between Header and Footer */}
         <Outlet />
       </Container>
       <Footer />

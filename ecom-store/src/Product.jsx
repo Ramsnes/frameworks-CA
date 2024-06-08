@@ -20,8 +20,7 @@ export function Product() {
         const response = await fetch(url);
         const json = await response.json();
 
-        // Change state to incl data
-        // .data because API docs starts with data.[rest of arrays]
+        // Change state to incl data - .data because API docs starts with data.[rest of arrays]
         setData(json.data);
       } catch (error) {
         console.log(error);

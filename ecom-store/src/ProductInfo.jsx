@@ -51,7 +51,7 @@ export function ProductInfo(props) {
               />
             )}
 
-            {/* Add product btns */}
+            {/* product btns */}
             <div
               style={{
                 padding: "0 0px 16px",

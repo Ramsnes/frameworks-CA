@@ -58,6 +58,7 @@ export function ProductsList(props) {
           onChange={(e) => setSearch(e.currentTarget.value)}
         />
         <Grid container spacing={6} justifyContent="center">
+          {/* filters the array of products based on search query, then maps over the filtered products to render each one as JSX elements */}
           {props.products
             .filter((product) => filterProducts(product, search))
             .map((product) => (
@@ -79,11 +80,15 @@ export function ProductsList(props) {
                     sx={{
                       maxWidth: 345,
                       minWidth: 290,
+                      minHeight: 500,
+                      "&:hover": {
+                        backgroundColor: "white",
+                      },
                     }}
                   >
                     <CardActionArea>
                       <CardMedia
-                        sx={{ height: 240 }}
+                        sx={{ height: 350 }}
                         image={product.image.url}
                         title={product.image.alt || product.title}
                       />
@@ -92,7 +97,6 @@ export function ProductsList(props) {
                           {product.title}
                         </Typography>
 
-                        {/* Price and discount percentage  */}
                         <DiscountLogic
                           price={product.price}
                           discountedPrice={product.discountedPrice}

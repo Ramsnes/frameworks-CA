@@ -10,13 +10,14 @@ import DiscountLogic from "./DiscountLogic";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Cart() {
-  // Hook from CartContext.jsx to fetch and remove products
+  // Hook from CartContext.jsx to fetch, reset and remove products
   const { products, removeProduct, resetCart } = useCartContext();
-  // Calculate total sum
+
   const totalSum = products.reduce(
     (acc, product) => acc + product.discountedPrice * product.quantity,
     0
   );
+
   const navigate = useNavigate();
   const handleCheckout = () => {
     resetCart();
@@ -37,7 +38,7 @@ function Cart() {
         spacing={4}
         style={{ margin: 0, width: "100%" }}
       >
-        <Grid item xs={12} style={{ textAlign: "center", marginTop: 20 }}>
+        <Grid item xs={12} style={{ textAlign: "center" }}>
           {" "}
           <Typography variant="h5">Your cart</Typography>
         </Grid>
@@ -64,13 +65,14 @@ function Cart() {
             </div>
           </Grid>
         ) : (
-          // If the cart is NOT empty:
+          // If the cart is *not* empty:
           products.map((product) => (
             <Card
               key={product.id}
               sx={{
                 maxWidth: 345,
                 minWidth: 245,
+                minHeight: 420,
                 marginBottom: 2,
                 margin: "auto",
                 mt: 4,
@@ -113,12 +115,10 @@ function Cart() {
             </Card>
           ))
         )}
-        {/* Removes checkout and total sum
-      Using Logical AND Operator. 
-      Renders block if product > 0. If not, don't render block  */}
+        {/* if product > 0, remove checkout-btn & total sum. 
+            if not, don't render */}
         {products.length > 0 && (
           <>
-            {/* <> groups the total sum and checkout button logic like a div*/}
             <Grid item justifyContent="center" xs={12}>
               <div
                 style={{

@@ -40,7 +40,7 @@ function Nav() {
             Contact
           </Link>
         </li>
-        {/* Cart w/ icon  */}
+        {/* Cart w/ badge  */}
         <li style={{ margin: "0 10px", display: "flex", alignItems: "center" }}>
           <Link
             to="/cart"
@@ -57,7 +57,6 @@ function Nav() {
             <span style={{ marginLeft: "5px" }}>Cart</span>
           </Link>
         </li>
-        {/* Cart end  */}
       </ul>
     </nav>
   );

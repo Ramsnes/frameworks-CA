@@ -30,6 +30,7 @@ function ReactHookForm() {
         component="form"
         onSubmit={handleSubmit(onSubmit)}
         sx={{
+          // 25ch ensures textfields fits 25 characters
           "& .MuiTextField-root": { m: 1, width: "25ch" },
         }}
         noValidate
@@ -43,10 +44,11 @@ function ReactHookForm() {
           spacing={2}
         >
           <Typography variant="h5">Contact form</Typography>
+          {/* Full name  */}
           <Grid item>
             <TextField
               {...register("fullName", {
-                // My jsx validation logic
+                // jsx validation logic
                 validate: {
                   required: (value) => {
                     if (!value) {
@@ -59,12 +61,13 @@ function ReactHookForm() {
                   },
                 },
               })}
+              // Material UI comps
               id="fullName"
               label="Full Name"
               variant="outlined"
               placeholder="Minimum 3 characters"
-              error={!!errors.fullName}
-              helperText={errors.fullName ? errors.fullName.message : ""}
+              error={!!errors.fullName} // if validation fails, display error
+              helperText={errors.fullName ? errors.fullName.message : ""} // Helper text for validation message
             />
           </Grid>
 
@@ -72,7 +75,6 @@ function ReactHookForm() {
           <Grid item>
             <TextField
               {...register("subject", {
-                // My jsx validation logic
                 validate: {
                   required: (value) => {
                     if (!value) {
@@ -98,7 +100,6 @@ function ReactHookForm() {
           <Grid item>
             <TextField
               {...register("email", {
-                // My jsx validation logic
                 validate: {
                   required: (value) => {
                     if (!value) {
@@ -126,7 +127,6 @@ function ReactHookForm() {
           <Grid item>
             <TextField
               {...register("body", {
-                // My jsx validation logic
                 validate: {
                   required: (value) => {
                     if (!value) {
@@ -139,15 +139,14 @@ function ReactHookForm() {
                   },
                 },
               })}
-              // Material UI comps
               id="body"
               label="Body"
               variant="outlined"
               placeholder="Minimum 3 characters"
               multiline // Multiple lines for text
               rows={4} // Row numbers for textarea
-              error={!!errors.body} // if validation fails, display error
-              helperText={errors.body ? errors.body.message : ""} // Helper text for validation message
+              error={!!errors.body}
+              helperText={errors.body ? errors.body.message : ""}
             />
           </Grid>
 
