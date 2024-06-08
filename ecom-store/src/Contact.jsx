@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Grid, Typography } from "@mui/material";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function ReactHookForm() {
   // handleSubmit receives the form data if validation is succs.
@@ -21,9 +21,11 @@ function ReactHookForm() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact us</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>Contact us</title>
+        </Helmet>
+      </HelmetProvider>
       <Box
         component="form"
         onSubmit={handleSubmit(onSubmit)}

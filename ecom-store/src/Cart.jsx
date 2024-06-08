@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import DiscountLogic from "./DiscountLogic";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Cart() {
   // Hook from CartContext.jsx to fetch and remove products
@@ -25,9 +25,11 @@ function Cart() {
 
   return (
     <>
-      <Helmet>
-        <title>{`Your Cart - ${products.length} items`}</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>{`Your Cart - ${products.length} items`}</title>
+        </Helmet>
+      </HelmetProvider>
       <Grid
         container
         justifyContent="center"

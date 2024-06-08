@@ -9,7 +9,7 @@ import { CardActionArea, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Rating } from "@mui/material";
 import DiscountLogic from "./DiscountLogic";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function filterProducts(product, search) {
   const query = search.toLowerCase();
@@ -43,11 +43,13 @@ export function ProductsList(props) {
 
   return (
     <>
-      <Helmet>
-        <title>
-          {search ? `Search results for "${search}"` : "Product List"}
-        </title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {search ? `Search results for "${search}"` : "Product List"}
+          </title>
+        </Helmet>
+      </HelmetProvider>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         <TextField
