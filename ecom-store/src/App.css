@@ -37,3 +37,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* Prouctinfo.JSX */
+.flex-container {
+  padding: 0 0 16px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 425px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-container > * {
+    margin-bottom: 10px;
+  }
+}

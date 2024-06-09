@@ -52,15 +52,7 @@ export function ProductInfo(props) {
             )}
 
             {/* product btns */}
-            <div
-              style={{
-                padding: "0 0px 16px",
-                display: "flex",
-                justifyContent: "start",
-                alignItems: "center",
-                marginTop: 10,
-              }}
-            >
+            <div className="flex-container">
               <Button
                 onClick={() => addProduct({ ...data, quantity })}
                 variant="contained"
