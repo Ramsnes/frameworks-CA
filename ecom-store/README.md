@@ -1,74 +1,77 @@
-# Frameworks, library or other components used
+# Front-end Frameworks CA
 
-**Material UI** [Material.com](https://mui.com/)
+## Description
 
-# Getting Started with Create React App
+The e-com store app presented is an app where it simulates the ability to buy products from a pre-selected list from an API, and send in a contact form.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features present are:
 
-## Available Scripts
+- Noroff online-shop API
+- View and buy products with increment/decrement amount
+- Fill out a responsive contact form
 
-In the project directory, you can run:
+## Languages
 
-### `npm start`
+- HTML
+- CSS
+- JavaScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Frameworks, library or other components used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **React** [react.dev] (https://react.dev/)
 
-### `npm test`
+React is a JavaScript library for building user interfaces, particularly for single-page applications. Developed and maintained by Facebook, React allows developers to create large web applications that can update and render efficiently in response to data changes. It uses a component-based architecture, where the UI is broken down into reusable components, each managing its own state. This approach enhances the development process by promoting modularity, reusability, and better organization of code.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Material UI** [mui.com](https://mui.com/)
 
-### `npm run build`
+Material-UI is a React component library that implements Google's Material Design guidelines. It provides a robust, customizable, and accessible set of components that make it easy to build sleek and responsive user interfaces. By using Material-UI, developers can leverage a wide range of pre-designed components, such as buttons, forms, and navigation elements, which help ensure a consistent look and feel across the application. The library also supports extensive theming capabilities, allowing for easy customization to fit the specific needs of any project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation and configuration
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone 'repo'
+```
 
-### `npm run eject`
+### Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Navigate to the project directory and install all dependencies listed in 'package.json'
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Build the Project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+After installing the dependencies, build the project:
 
-## Learn More
+```
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Run the Development Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To start the development server and view the app in the browser:
 
-### Code Splitting
+```
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open http://localhost:3000 to view it in your browser. The page will reload when you make changes, and you may see lint errors in the console.
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Viewing Products:** Browse the list of products available from the Noroff online-shop API.
+- **Adding to Cart:** Select the desired quantity and add products to your cart.
+- **Contact Form:** Fill out and submit the responsive contact form.
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributions are welcomed with the following guidelines:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
