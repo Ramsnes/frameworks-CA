@@ -2,13 +2,19 @@
 
 ## Description
 
-The e-com store app presented is an app where it simulates the ability to buy products from a pre-selected list from an API, and send in a contact form.
+This e-com store app presented is an app where it simulates the ability to buy products from a pre-selected list from an API, and send in a contact form.
 
 Features present are:
 
 - Noroff online-shop API
 - View and buy products with increment/decrement amount
 - Fill out a responsive contact form
+
+## Usage
+
+- **Viewing Products:** Browse the list of products available from the Noroff online-shop API.
+- **Adding to Cart:** Select the desired quantity and add products to your cart.
+- **Contact Form:** Fill out and submit the responsive contact form.
 
 ## Languages
 
@@ -18,7 +24,7 @@ Features present are:
 
 ## Frameworks, library or other components used
 
-### **React** [react.dev] (https://react.dev/)
+### **React** [react.dev](https://react.dev/)
 
 React is a JavaScript library for building user interfaces, particularly for single-page applications. Developed and maintained by Facebook, React allows developers to create large web applications that can update and render efficiently in response to data changes. It uses a component-based architecture, where the UI is broken down into reusable components, each managing its own state. This approach enhances the development process by promoting modularity, reusability, and better organization of code.
 
@@ -59,12 +65,6 @@ npm run start
 ```
 
 Open http://localhost:3000 to view it in your browser. The page will reload when you make changes, and you may see lint errors in the console.
-
-## Usage
-
-- **Viewing Products:** Browse the list of products available from the Noroff online-shop API.
-- **Adding to Cart:** Select the desired quantity and add products to your cart.
-- **Contact Form:** Fill out and submit the responsive contact form.
 
 ## Contributing
 
